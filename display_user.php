@@ -1,19 +1,19 @@
 <?php
-// Database connection using lecturer's specified database name
-$servername = "localhost";
-$username = "root"; // Change if needed
-$password = ""; // Change if needed
-$dbname = "lab_7"; // Using lecturer's specified database name
 
-// Create connection
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "lab_7"; 
+
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch users
+
 $sql = "SELECT matric, name, role FROM users";
 $result = $conn->query($sql);
 ?>
@@ -40,7 +40,7 @@ $result = $conn->query($sql);
         </tr>
         <?php
         if ($result->num_rows > 0) {
-            // Output data of each row
+            
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>".htmlspecialchars($row["matric"])."</td>
